@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoadingPage extends StatelessWidget {
   const LoadingPage({super.key});
@@ -8,6 +9,7 @@ class LoadingPage extends StatelessWidget {
     return Scaffold(
       //Body
       body: SafeArea(
+        // Gradient
         child: Container(
           height: double.infinity,
           width: double.infinity,
@@ -24,6 +26,8 @@ class LoadingPage extends StatelessWidget {
               ],
             ),
           ),
+
+          // Text and Icon
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -31,11 +35,24 @@ class LoadingPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/img/Logo.png'),
-                  const Text(
-                    'Sorte Todo Dia',
+                  Text(
+                    'Sorte Todo Dia!',
+                    style: GoogleFonts.roboto(fontSize: 28, fontWeight: FontWeight.w400),
                   ),
                 ],
               ),
+
+              // SizedBox
+              const SizedBox(
+                height: 16,
+              ),
+
+              // Loading animation
+              Container(
+                height: 5,
+                width: 22.5,
+                color: const Color(0xFF000000),
+              )
             ],
           ),
         ),
