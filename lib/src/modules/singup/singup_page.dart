@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+class SingUpPage extends StatelessWidget {
+  const SingUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Body
       body: Container(
         height: double.infinity,
         width: double.infinity,
@@ -27,21 +28,9 @@ class LoginPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            // sizedBox
             const SizedBox(
-              height: 100,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/img/Logo.png'),
-                const Text(
-                  'Sorte Todo Dia!',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
+              height: 60,
             ),
 
             // login form
@@ -64,11 +53,22 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(
                         height: 40,
                       ),
-
                       // Title
                       const Text(
-                        'Acessar',
+                        'Cadastro',
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                      ),
+
+                      // Textfield Name
+                      const TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Nome',
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
                       ),
 
                       // Textfield Email
@@ -79,29 +79,70 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
 
-                      // Textfield Password
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Textfield cell phone
                       const TextField(
-                        obscureText: true,
+                        obscureText: false,
                         decoration: InputDecoration(
-                          labelText: 'Senha',
+                          labelText: 'Celular',
                         ),
                       ),
 
-                      // forgot password hyperlink
-                      const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          'Esqueceu a senha?',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF8DCBE6),
-                          ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Textfield State
+                      const TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Estado',
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Textfield City
+                      const TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Cidade',
                         ),
                       ),
 
                       // sizedBox
                       const SizedBox(
-                        height: 40,
+                        height: 50,
+                      ),
+
+                      // Textfield password
+                      const TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Senha',
+                        ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
+                      ),
+
+                      // Textfield confirm password
+                      const TextField(
+                        obscureText: false,
+                        decoration: InputDecoration(
+                          labelText: 'Confirmar Senha',
+                        ),
+                      ),
+
+                      // sizedBox
+                      const SizedBox(
+                        height: 60,
                       ),
 
                       // Sing in btn
@@ -123,10 +164,10 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           onPressed: () => {
-                            debugPrint('Entrar'),
+                            debugPrint('Confirmar'),
                           },
                           child: const Text(
-                            'Entrar',
+                            'Confirmar',
                             style: TextStyle(fontSize: 16),
                           ),
                         ),
@@ -149,60 +190,11 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                           onPressed: () => {
-                            debugPrint('Cadastrar'),
+                            debugPrint('Voltar'),
                           },
                           child: const Text(
-                            'Cadastrar',
+                            'Voltar',
                             style: TextStyle(fontSize: 16),
-                          ),
-                        ),
-                      ),
-
-                      //sizedBox
-                      const SizedBox(
-                        height: 40,
-                      ),
-
-                      // Divider: login as business
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
-                          // Decoration
-                          Expanded(child: Divider()),
-
-                          // Text
-                          Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 10),
-                            child: Text('É logista?'),
-                          ),
-
-                          // Decoration
-                          Expanded(child: Divider()),
-                        ],
-                      ),
-
-                      // sizedBox
-                      const SizedBox(
-                        height: 30,
-                      ),
-
-                      // Button: Login as bussiness
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          border: Border.all(),
-                        ),
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          onPressed: () => {
-                            debugPrint('Login as Business'),
-                          },
-                          child: const Text(
-                            'Entrar como lojista',
-                            style: TextStyle(fontSize: 14),
                           ),
                         ),
                       ),
