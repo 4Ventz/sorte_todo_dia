@@ -15,12 +15,12 @@ class AppWidget extends StatelessWidget {
       title: 'Sorte Todo Dia',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
-      initialRoute: '/home_page',
+      initialRoute: '/home',
       routes: {
         '/': (context) => const LoadingPage(),
-        '/login_page': (context) => const LoginPage(),
-        '/singup_page': (context) => const SingUpPage(),
-        '/home_page': (context) => const HomePage(),
+        '/login': (context) => const LoginPage(),
+        '/singup': (context) => const SingUpPage(),
+        '/home': (context) => const HomePage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
