@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sorte_todo_dia/src/modules/config/config.dart';
 import 'package:sorte_todo_dia/src/modules/home/home_page.dart';
 import 'package:sorte_todo_dia/src/modules/loading/loading_page.dart';
 import 'package:sorte_todo_dia/src/modules/login/login_page.dart';
+import 'package:sorte_todo_dia/src/modules/raffle/raffle.dart';
 import 'package:sorte_todo_dia/src/modules/singup/singUP_page.dart';
 import 'package:sorte_todo_dia/src/shared/theme/app_theme.dart';
 
@@ -15,12 +17,14 @@ class AppWidget extends StatelessWidget {
       title: 'Sorte Todo Dia',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
-      initialRoute: '/home',
+      initialRoute: '/config',
       routes: {
         '/': (context) => const LoadingPage(),
         '/login': (context) => const LoginPage(),
         '/singup': (context) => const SingUpPage(),
         '/home': (context) => const HomePage(),
+        '/raffle': (context) => const RafflePage(),
+        '/config': (context) => const ConfigPage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
