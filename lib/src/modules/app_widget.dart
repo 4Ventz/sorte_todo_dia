@@ -4,6 +4,7 @@ import 'package:sorte_todo_dia/src/modules/config/config.dart';
 import 'package:sorte_todo_dia/src/modules/home/home_page.dart';
 import 'package:sorte_todo_dia/src/modules/loading/loading_page.dart';
 import 'package:sorte_todo_dia/src/modules/login/login_page.dart';
+import 'package:sorte_todo_dia/src/modules/myRaffles/myRaffles.dart';
 import 'package:sorte_todo_dia/src/modules/raffle/raffle.dart';
 import 'package:sorte_todo_dia/src/modules/singup/singUP_page.dart';
 import 'package:sorte_todo_dia/src/shared/theme/app_theme.dart';
@@ -17,7 +18,7 @@ class AppWidget extends StatelessWidget {
       title: 'Sorte Todo Dia',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
-      initialRoute: '/config',
+      initialRoute: '/myRaffles',
       routes: {
         '/': (context) => const LoadingPage(),
         '/login': (context) => const LoginPage(),
@@ -25,6 +26,7 @@ class AppWidget extends StatelessWidget {
         '/home': (context) => const HomePage(),
         '/raffle': (context) => const RafflePage(),
         '/config': (context) => const ConfigPage(),
+        '/myRaffles': (context) => const MyRafflesPage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
