@@ -24,40 +24,39 @@ class LoginPage extends StatelessWidget {
         ),
 
         // Text and Icon
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            const SizedBox(
-              height: 100,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/img/Logo.png'),
-                const Text(
-                  'Sorte Todo Dia!',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-
-            // login form
-            Expanded(
-              child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 15),
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Color(0xFFFFFFFF),
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(20),
-                    topRight: Radius.circular(20),
+        child: SafeArea(
+          child: ListView(
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/img/Logo.png'),
+                  const Text(
+                    'Sorte Todo Dia!',
+                    style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
                   ),
-                ),
-                child: SingleChildScrollView(
+                ],
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+
+              // login form
+              Expanded(
+                child: Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 0),
+                  width: double.infinity,
+                  decoration: const BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
+                    ),
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -71,12 +70,20 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                       ),
 
+                      const SizedBox(
+                        height: 20,
+                      ),
+
                       // Textfield Email
                       const TextField(
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: 'Email',
                         ),
+                      ),
+
+                      const SizedBox(
+                        height: 20,
                       ),
 
                       // Textfield Password
@@ -87,21 +94,28 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
 
+                      const SizedBox(
+                        height: 15,
+                      ),
+
                       // forgot password hyperlink
-                      const Align(
-                        alignment: Alignment.centerRight,
-                        child: Text(
-                          'Esqueceu a senha?',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFF8DCBE6),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: InkWell(
+                          onTap: () => debugPrint('Esqueceu a senha!'),
+                          child: const Text(
+                            'Esqueceu a Senha?',
+                            style: TextStyle(
+                              color: Color(0xFF8DCBE6),
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                            ),
                           ),
                         ),
                       ),
 
-                      // sizedBox
                       const SizedBox(
-                        height: 40,
+                        height: 30,
                       ),
 
                       // Sing in btn
@@ -119,11 +133,13 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         child: MaterialButton(
+                          padding: const EdgeInsets.all(8.0),
+                          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
-                          onPressed: () => {
-                            debugPrint('Entrar'),
+                          onPressed: () {
+                            Navigator.pushReplacementNamed(context, '/home');
                           },
                           child: const Text(
                             'Entrar',
@@ -131,34 +147,28 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                       ),
-
-                      // sizedBox
                       const SizedBox(
                         height: 20,
                       ),
 
                       // Sing up btn
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
+                      MaterialButton(
+                        padding: const EdgeInsets.all(8.0),
+                        minWidth: double.infinity,
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(),
+                          side: const BorderSide(
+                            style: BorderStyle.solid,
+                          ),
                         ),
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          onPressed: () => {
-                            debugPrint('Cadastrar'),
-                          },
-                          child: const Text(
-                            'Cadastrar',
-                            style: TextStyle(fontSize: 16),
-                          ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/singup');
+                        },
+                        child: const Text(
+                          'Cadastrar',
+                          style: TextStyle(fontSize: 16),
                         ),
                       ),
-
-                      //sizedBox
                       const SizedBox(
                         height: 40,
                       ),
@@ -168,7 +178,9 @@ class LoginPage extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: const [
                           // Decoration
-                          Expanded(child: Divider()),
+                          Expanded(
+                            child: Divider(),
+                          ),
 
                           // Text
                           Padding(
@@ -177,41 +189,42 @@ class LoginPage extends StatelessWidget {
                           ),
 
                           // Decoration
-                          Expanded(child: Divider()),
+                          Expanded(
+                            child: Divider(),
+                          ),
                         ],
                       ),
-
-                      // sizedBox
                       const SizedBox(
                         height: 30,
                       ),
 
                       // Button: Login as bussiness
-                      Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
+                      MaterialButton(
+                        padding: const EdgeInsets.all(8.0),
+                        minWidth: double.infinity,
+                        shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
-                          border: Border.all(),
-                        ),
-                        child: MaterialButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          onPressed: () => {
-                            debugPrint('Login as Business'),
-                          },
-                          child: const Text(
-                            'Entrar como lojista',
-                            style: TextStyle(fontSize: 14),
+                          side: const BorderSide(
+                            style: BorderStyle.solid,
                           ),
                         ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/singup');
+                        },
+                        child: const Text(
+                          'Entrar como Lojista',
+                          style: TextStyle(fontSize: 16),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).padding.bottom + 30,
                       ),
                     ],
                   ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
