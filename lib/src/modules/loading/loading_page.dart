@@ -56,7 +56,7 @@ class LoadingPage extends StatelessWidget {
             ),
 
             // Loading animation
-            CircularProgressIndicator(),
+            const CircularProgressIndicator(),
           ],
         ),
       ),

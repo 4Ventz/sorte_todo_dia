@@ -136,7 +136,7 @@ class HomePage extends StatelessWidget {
                     // Btn
                     InkWell(
                       onTap: () {
-                        Navigator.pushNamed(context, '/raffle');
+                        Navigator.pushNamed(context, '/raffles');
                       },
                       child: Row(
                         children: const [

@@ -162,7 +162,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/singup');
+                          Navigator.pushNamed(context, '/sing_up');
                         },
                         child: const Text(
                           'Cadastrar',
@@ -209,7 +209,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/singup');
+                          Navigator.pushNamed(context, '/sing_up');
                         },
                         child: const Text(
                           'Entrar como Lojista',

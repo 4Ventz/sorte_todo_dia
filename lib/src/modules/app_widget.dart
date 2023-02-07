@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:sorte_todo_dia/src/modules/config/config.dart';
-import 'package:sorte_todo_dia/src/modules/editPerfil/editPerfil.dart';
+import 'package:sorte_todo_dia/src/modules/config/config_page.dart';
+import 'package:sorte_todo_dia/src/modules/edit_profile/edit_profile_page.dart';
 import 'package:sorte_todo_dia/src/modules/home/home_page.dart';
 import 'package:sorte_todo_dia/src/modules/loading/loading_page.dart';
 import 'package:sorte_todo_dia/src/modules/login/login_page.dart';
-import 'package:sorte_todo_dia/src/modules/myRaffles/myRaffles.dart';
-import 'package:sorte_todo_dia/src/modules/raffle/raffle.dart';
-import 'package:sorte_todo_dia/src/modules/singup/singUP_page.dart';
+import 'package:sorte_todo_dia/src/modules/my_raffles/my_raffles_page.dart';
+import 'package:sorte_todo_dia/src/modules/prizes/prizes_page.dart';
+import 'package:sorte_todo_dia/src/modules/prizes_details/prizes_details_page.dart';
+import 'package:sorte_todo_dia/src/modules/raffles/raffles_page.dart';
+import 'package:sorte_todo_dia/src/modules/sign_up/sign_up_page.dart';
 import 'package:sorte_todo_dia/src/shared/theme/app_theme.dart';
 
 class AppWidget extends StatelessWidget {
@@ -19,16 +21,18 @@ class AppWidget extends StatelessWidget {
       title: 'Sorte Todo Dia',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.appTheme,
-      initialRoute: '/editPerfil',
+      initialRoute: '/prizes-details',
       routes: {
         '/': (context) => const LoadingPage(),
         '/login': (context) => const LoginPage(),
-        '/singup': (context) => const SingUpPage(),
+        '/sing_up': (context) => const SingUpPage(),
         '/home': (context) => const HomePage(),
-        '/raffle': (context) => const RafflePage(),
+        '/raffles': (context) => const RafflePage(),
         '/config': (context) => const ConfigPage(),
-        '/myRaffles': (context) => const MyRafflesPage(),
-        '/editPerfil': (context) => const EditPerfilPage(),
+        '/my-raffles': (context) => const MyRafflesPage(),
+        '/edit-profile': (context) => const EditPerfilPage(),
+        '/prizes': (context) => const PrizesPage(),
+        '/prizes-details': (context) => const PrizesDetailsPage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
