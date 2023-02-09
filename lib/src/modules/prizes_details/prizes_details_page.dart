@@ -76,16 +76,19 @@ class PrizesDetailsPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
                   height: 15,
                 ),
 
                 // Title
-                const Text(
-                  'Combo solteiro',
-                  style: TextStyle(
-                    fontSize: 24,
+                const Center(
+                  child: Text(
+                    'Combo solteiro',
+                    style: TextStyle(
+                      fontSize: 24,
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -173,7 +176,7 @@ class PrizesDetailsPage extends StatelessWidget {
                 ),
 
                 const Text(
-                  'Válido até:',
+                  'Alfedro Lanches',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
@@ -181,13 +184,42 @@ class PrizesDetailsPage extends StatelessWidget {
                 ),
 
                 const Text(
-                  '01 / 02 / 2023',
+                  'Rua genérica ali do Lado 1234, Bairro 1, Ubatuba - SP',
                   style: TextStyle(
                     fontSize: 16,
                   ),
                 ),
               ],
             ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: 2,
+        backgroundColor: const Color(0xFFF9FBFF),
+        selectedItemColor: Colors.black,
+        unselectedItemColor: const Color(0xFFA69696),
+        items: const [
+          // Home
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: ("Home"),
+          ),
+
+          // raffle
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              AssetImage('assets/img/logo1.png'),
+            ),
+            label: ('Sorteio'),
+          ),
+
+          // Prizes
+          BottomNavigationBarItem(
+            icon: ImageIcon(
+              AssetImage('assets/img/trophy1.png'),
+            ),
+            label: ('Prêmios'),
           ),
         ],
       ),

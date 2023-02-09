@@ -209,7 +209,7 @@ class LoginPage extends StatelessWidget {
                           ),
                         ),
                         onPressed: () {
-                          Navigator.pushNamed(context, '/sing_up');
+                          Navigator.pushNamed(context, '/business-login');
                         },
                         child: const Text(
                           'Entrar como Lojista',
@@ -217,7 +217,7 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).padding.bottom + 30,
+                        height: MediaQuery.of(context).padding.bottom + 60,
                       ),
                     ],
                   ),

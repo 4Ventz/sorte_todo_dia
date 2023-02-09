@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SingUpPage extends StatelessWidget {
-  const SingUpPage({super.key});
+class BusinessSingUpPage extends StatelessWidget {
+  const BusinessSingUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +42,34 @@ class SingUpPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(
-                  height: 40,
+                  height: 60,
                 ),
                 // Title
                 const Text(
-                  'Cadastro',
+                  'Cadastro para Empresas',
+                  textAlign: TextAlign.center,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
                 ),
 
-                // Textfield Name
+                const SizedBox(
+                  height: 20,
+                ),
+
+                // Textfield Business Name
                 const TextField(
                   decoration: InputDecoration(
-                    labelText: 'Nome',
+                    labelText: 'Nome do Estabelecimento',
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                // Textfield CNPJ
+                const TextField(
+                  decoration: InputDecoration(
+                    labelText: 'CNPJ',
                   ),
                 ),
 
@@ -73,11 +89,23 @@ class SingUpPage extends StatelessWidget {
                   height: 20,
                 ),
 
-                // Textfield cell phone
+                // Textfield cellphone
                 const TextField(
                   obscureText: false,
                   decoration: InputDecoration(
                     labelText: 'Celular',
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 60,
+                ),
+
+                // Textfield CEP
+                const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'CEP',
                   ),
                 ),
 
@@ -105,9 +133,33 @@ class SingUpPage extends StatelessWidget {
                   ),
                 ),
 
+                // Textfield Adress
+                const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Endereço',
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
+                // Textfield Number
+                const TextField(
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    labelText: 'Número',
+                  ),
+                ),
+
+                const SizedBox(
+                  height: 20,
+                ),
+
                 // sizedBox
                 const SizedBox(
-                  height: 50,
+                  height: 60,
                 ),
 
                 // Textfield password
@@ -150,13 +202,16 @@ class SingUpPage extends StatelessWidget {
                     ),
                   ),
                   child: MaterialButton(
+                    padding: const EdgeInsets.all(8.0),
                     materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    onPressed: () => Navigator.pushNamed(context, '/login'),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, '/business-login');
+                    },
                     child: const Text(
-                      'Confirmar',
+                      'Entrar',
                       style: TextStyle(fontSize: 16),
                     ),
                   ),
@@ -167,23 +222,22 @@ class SingUpPage extends StatelessWidget {
                   height: 20,
                 ),
 
-                // Sing up btn
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
+                // Button: Back
+                MaterialButton(
+                  padding: const EdgeInsets.all(8.0),
+                  minWidth: double.infinity,
+                  shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(),
+                    side: const BorderSide(
+                      style: BorderStyle.solid,
+                    ),
                   ),
-                  child: MaterialButton(
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    onPressed: () => Navigator.pushNamed(context, '/login'),
-                    child: const Text(
-                      'Voltar',
-                      style: TextStyle(fontSize: 16),
-                    ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/business-login');
+                  },
+                  child: const Text(
+                    'Voltar',
+                    style: TextStyle(fontSize: 16),
                   ),
                 ),
                 SizedBox(
