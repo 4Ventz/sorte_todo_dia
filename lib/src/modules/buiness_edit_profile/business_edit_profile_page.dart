@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class EditProfilePage extends StatelessWidget {
-  const EditProfilePage({super.key});
+class BusinessEditProfilePage extends StatelessWidget {
+  const BusinessEditProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +38,10 @@ class EditProfilePage extends StatelessWidget {
                 height: 40,
               ),
 
-              // Textfield Name
+              // Textfied Business Name
               const TextField(
                 decoration: InputDecoration(
-                  labelText: 'Nome Completo',
+                  labelText: 'Nome da Loja',
                 ),
               ),
 
@@ -52,7 +52,7 @@ class EditProfilePage extends StatelessWidget {
               // Textfield phone
               const TextField(
                 decoration: InputDecoration(
-                  labelText: 'Celular',
+                  labelText: 'Telefone de contato',
                 ),
               ),
 
@@ -68,7 +68,18 @@ class EditProfilePage extends StatelessWidget {
               ),
 
               const SizedBox(
-                height: 60,
+                height: 20,
+              ),
+
+              // Textfield CNPJ
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'CNPJ',
+                ),
+              ),
+
+              const SizedBox(
+                height: 100,
               ),
 
               const Text(
@@ -76,14 +87,43 @@ class EditProfilePage extends StatelessWidget {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               ),
 
+              // Textfield CEP
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'CEP',
+                ),
+              ),
+
               const SizedBox(
-                height: 10,
+                height: 20,
               ),
 
               // Textfield State
               const TextField(
                 decoration: InputDecoration(
                   labelText: 'Estado',
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Textfield Address
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Endereço',
+                ),
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Textfield Number
+              const TextField(
+                decoration: InputDecoration(
+                  labelText: 'Número',
                 ),
               ),
 
@@ -121,6 +161,10 @@ class EditProfilePage extends StatelessWidget {
                     child: Divider(),
                   ),
                 ],
+              ),
+
+              const SizedBox(
+                height: 8,
               ),
 
               // login form

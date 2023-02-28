@@ -71,7 +71,7 @@ class HomePage extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(10),
                 splashColor: Colors.black12,
-                onTap: () => debugPrint('Image BTN'),
+                onTap: () => Navigator.pushNamed(context, '/prizes'),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -167,7 +167,7 @@ class HomePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
                         splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
+                        onTap: () => Navigator.pushNamed(context, '/prizes-details'),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -183,19 +183,24 @@ class HomePage extends StatelessWidget {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              height: MediaQuery.of(context).size.width * 0.3,
+                              height: MediaQuery.of(context).size.width * 0.35,
                               width: MediaQuery.of(context).size.width * 0.3,
                             ),
 
                             // Text
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   children: const [
                                     Text(
                                       'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -222,10 +227,6 @@ class HomePage extends StatelessWidget {
 
                     // button
                     Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 0,
-                      ),
                       margin: const EdgeInsets.only(
                         right: 8,
                         bottom: 8,
@@ -249,7 +250,7 @@ class HomePage extends StatelessWidget {
                         onPressed: () => debugPrint('participar'),
                         child: const Text(
                           'Participar',
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                     ),
@@ -276,21 +277,35 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
+                            Ink(
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/img/xtudo1.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              width: MediaQuery.of(context).size.width * 0.3,
                             ),
 
                             // Text
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   children: const [
                                     Text(
                                       'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -316,41 +331,31 @@ class HomePage extends StatelessWidget {
                     ),
 
                     // button
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 220),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
-                            ],
-                          ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        right: 8,
+                        bottom: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFFFEA20),
+                            Color(0xFFF1DB00),
+                          ],
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
+                      ),
+                      child: MaterialButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        onPressed: () => debugPrint('participar'),
+                        child: const Text(
+                          'Participar',
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                     ),
@@ -377,21 +382,35 @@ class HomePage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
+                            Ink(
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/img/xtudo1.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              width: MediaQuery.of(context).size.width * 0.3,
                             ),
 
                             // Text
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   children: const [
                                     Text(
                                       'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -417,41 +436,31 @@ class HomePage extends StatelessWidget {
                     ),
 
                     // button
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 220),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
-                            ],
-                          ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        right: 8,
+                        bottom: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFFFEA20),
+                            Color(0xFFF1DB00),
+                          ],
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
+                      ),
+                      child: MaterialButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        onPressed: () => debugPrint('participar'),
+                        child: const Text(
+                          'Participar',
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                     ),

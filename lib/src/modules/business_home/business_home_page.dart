@@ -29,436 +29,348 @@ class BusinessHomePage extends StatelessWidget {
         ),
       ),
       body: ListView(
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         children: [
-          // TODO: Carousel
-          Container(
-            width: double.infinity,
-            height: 200,
-            color: const Color(0xFFCCCCCC),
-          ),
-
           const SizedBox(
-            height: 40,
+            height: 25,
           ),
 
-          // Prize Btn
-          Container(
-            // Gradient border
-            padding: const EdgeInsets.all(1),
-            margin: const EdgeInsets.symmetric(horizontal: 30),
-            decoration: const BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(10),
-              ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  Color(0xFFE6A519),
-                  Color(0xFFF6D006),
-                  Color(0xFFFFEA20),
-                  Color(0xFFF6D006),
-                  Color(0xFFE6A519),
+          //Statistics + read QrCode btn
+          Material(
+            elevation: 5,
+            borderRadius: BorderRadius.circular(10),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 20),
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 8,
+                  ),
+                  const Text(
+                    'Estatísticas',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  ),
+                  const Divider(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+
+                  //values
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          //Total de sorteios
+                          Container(
+                            padding: const EdgeInsets.all(2.5),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Color(0xFFE6A519),
+                                  Color(0xFFF6D006),
+                                  Color(0xFFFFEA20),
+                                  Color(0xFFF6D006),
+                                  Color(0xFFE6A519),
+                                ],
+                              ),
+                            ),
+                            child: Container(
+                              padding: const EdgeInsets.all(20),
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.white,
+                              ),
+                              child: const Text(
+                                '100',
+                                style: TextStyle(
+                                  fontSize: 25,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                          const Text(
+                            'Total de \n Sorteios',
+                            textAlign: TextAlign.center,
+                          ),
+                        ],
+                      ),
+                      Column(children: [
+                        // Total de Participantes
+                        Container(
+                          padding: const EdgeInsets.all(2.5),
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [
+                                Color(0xFFE6A519),
+                                Color(0xFFF6D006),
+                                Color(0xFFFFEA20),
+                                Color(0xFFF6D006),
+                                Color(0xFFE6A519),
+                              ],
+                            ),
+                          ),
+                          child: Container(
+                            padding: const EdgeInsets.all(20),
+                            decoration: const BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: Colors.white,
+                            ),
+                            child: const Text(
+                              '500',
+                              style: TextStyle(
+                                fontSize: 25,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Text(
+                          'Total de \n Participantes',
+                          textAlign: TextAlign.center,
+                        ),
+                      ])
+                    ],
+                  ),
+
+                  const SizedBox(
+                    height: 30,
+                  ),
+
+                  // Camera Btn
+                  Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      gradient: const LinearGradient(
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                        colors: [
+                          Color(0xFFFFEA20),
+                          Color(0xFFF1DB00),
+                        ],
+                      ),
+                    ),
+                    child: MaterialButton(
+                      padding: const EdgeInsets.all(8.0),
+                      materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      onPressed: () {
+                        debugPrint('Leitor Qr Code');
+                      },
+                      child: const Text(
+                        'Ler Qr Code',
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
-
-            // Image and text
-            child: Material(
-              elevation: 6,
-              color: const Color(0xFFFFFFFF),
-              borderRadius: BorderRadius.circular(10),
-              child: InkWell(
-                borderRadius: BorderRadius.circular(10),
-                splashColor: Colors.black12,
-                onTap: () => debugPrint('Image BTN'),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    // image
-                    Ink.image(
-                      image: const AssetImage('assets/img/prize_btn.jpg'),
-                      width: 140,
-                      height: 140,
-                    ),
-
-                    // Vertical divider
-                    const SizedBox(
-                      height: 130,
-                      child: VerticalDivider(
-                        thickness: 1,
-                      ),
-                    ),
-
-                    // Text
-                    Expanded(
-                      child: Column(
-                        children: const [
-                          Text(
-                            'Parabéns!',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            'Você tem X prêmios a resgatar',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontWeight: FontWeight.w400),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
           ),
 
           const SizedBox(
-            height: 40,
+            height: 50,
           ),
-
           // Itens list
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                // Header
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Adicionados Recentemente',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // Header
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Text(
+                    'Meus Sorteios',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  ),
+                  // Btn
+                  InkWell(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/raffles');
+                    },
+                    child: Row(
+                      children: const [
+                        Text(
+                          'Ver todos',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                        Icon(Icons.chevron_right_outlined),
+                      ],
                     ),
-                    // Btn
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/raffles');
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            'Ver todos',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          Icon(Icons.chevron_right_outlined),
-                        ],
+                  ),
+                ],
+              ),
+
+              const SizedBox(
+                height: 20,
+              ),
+
+              // Card 1
+              Material(
+                elevation: 6,
+                color: const Color(0xFFFFFFFF),
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  splashColor: Colors.black12,
+                  onTap: () => debugPrint('Image BTN'),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // image
+                      Ink.image(
+                        image: const AssetImage('assets/img/xtudo1.png'),
+                        width: 140,
+                        height: 140,
                       ),
-                    ),
-                  ],
-                ),
 
-                const SizedBox(
-                  height: 25,
-                ),
-
-                // Itens card
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    // card
-                    Material(
-                      elevation: 6,
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            // image
-                            Ink(
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
-                                ),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/img/xtudo1.png'),
-                                  fit: BoxFit.cover,
+                      // Text
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Sorteio Nº 44.123',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(right: 30),
+                                child: Divider(
+                                  height: 0,
                                 ),
                               ),
-                              height: MediaQuery.of(context).size.width * 0.3,
-                              width: MediaQuery.of(context).size.width * 0.3,
-                            ),
-
-                            // Text
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA69696),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                'Validade: 05 / 02 / 2022',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFFA69696),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 40,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 10,
+                                    width: 10,
+                                    margin: const EdgeInsets.only(right: 5),
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFFF3DC04),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(50),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                  ],
-                                ),
+                                  ),
+                                  const Text('Em andamento'),
+                                ],
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // button
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 0,
-                      ),
-                      margin: const EdgeInsets.only(
-                        right: 8,
-                        bottom: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFFFFEA20),
-                            Color(0xFFF1DB00),
-                          ],
-                        ),
-                      ),
-                      child: MaterialButton(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        onPressed: () => debugPrint('participar'),
-                        child: const Text(
-                          'Participar',
-                          style: TextStyle(fontSize: 16),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(
-                  height: 25,
-                ),
-
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    // card
-                    Material(
-                      elevation: 6,
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
-                            ),
-
-                            // Text
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA69696),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // button
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 220),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
                             ],
                           ),
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
+              ),
 
-                const SizedBox(
-                  height: 25,
-                ),
+              const SizedBox(
+                height: 20,
+              ),
 
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    // card
-                    Material(
-                      elevation: 6,
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
-                            ),
+              // Card 2
+              Material(
+                elevation: 6,
+                color: const Color(0xFFFFFFFF),
+                borderRadius: BorderRadius.circular(10),
+                child: InkWell(
+                  borderRadius: BorderRadius.circular(10),
+                  splashColor: Colors.black12,
+                  onTap: () => debugPrint('Image BTN'),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      // image
+                      Ink.image(
+                        image: const AssetImage('assets/img/xtudo1.png'),
+                        width: 140,
+                        height: 140,
+                      ),
 
-                            // Text
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 10),
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      'Combo Solteiro',
-                                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA69696),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                  ],
+                      // Text
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              const Text(
+                                'Sorteio Nº 44.123',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                              ),
+                              const Padding(
+                                padding: EdgeInsets.only(right: 30),
+                                child: Divider(
+                                  height: 0,
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // button
-                    Padding(
-                      padding: const EdgeInsets.all(8),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 220),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              const Text(
+                                'Validade: 05 / 02 / 2022',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  color: Color(0xFFA69696),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 40,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Container(
+                                    height: 10,
+                                    width: 10,
+                                    margin: const EdgeInsets.only(right: 5),
+                                    decoration: const BoxDecoration(
+                                      color: Color(0xFF00F518),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(50),
+                                      ),
+                                    ),
+                                  ),
+                                  const Text('Resgatado'),
+                                ],
+                              ),
                             ],
                           ),
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 16),
-                              ),
-                            ),
-                          ),
-                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
@@ -491,11 +403,11 @@ class BusinessHomePage extends StatelessWidget {
 
             // Prizes
             const NavigationDestination(
-              icon: ImageIcon(
-                AssetImage('assets/img/trophy1.png'),
-                size: 20,
+              icon: Icon(
+                Icons.qr_code_scanner_outlined,
+                size: 25,
               ),
-              label: ('Prêmios'),
+              label: ('Scanner'),
             ),
           ],
         ),

@@ -7,9 +7,11 @@ class RafflePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
         centerTitle: true,
         backgroundColor: const Color(0xFFF9FBFF),
+        title: const Text(
+          'Sorteio',
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 5),
@@ -24,9 +26,6 @@ class RafflePage extends StatelessWidget {
             ),
           ),
         ],
-        title: const Text(
-          'Sorteio',
-        ),
       ),
       body: ListView(
         children: [
