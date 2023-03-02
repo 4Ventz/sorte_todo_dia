@@ -7,19 +7,24 @@ class QrCodePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0.0,
         centerTitle: true,
-        backgroundColor: const Color(0xFFF9FBFF),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.person_outlined,
-              size: 30,
+            padding: const EdgeInsets.only(right: 5),
+            child: IconButton(
+              icon: const Icon(
+                Icons.person_outlined,
+                size: 30,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/config');
+              },
             ),
           ),
         ],
         title: const Text(
-          'Regatar Prêmio',
+          'Resgatar Prêmio',
         ),
       ),
       body: Column(
@@ -36,14 +41,15 @@ class QrCodePage extends StatelessWidget {
             ),
           ),
 
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
 
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 15),
             child: Text(
-                'Mostre o código para os funcionários do estabelecimento para resceber seu prêmio'),
+              'Mostre o código para os funcionários do estabelecimento para resceber seu prêmio',
+            ),
           ),
           const SizedBox(
             height: 30,
@@ -67,35 +73,6 @@ class QrCodePage extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: 2,
-        backgroundColor: const Color(0xFFF9FBFF),
-        selectedItemColor: Colors.black,
-        unselectedItemColor: const Color(0xFFA69696),
-        items: const [
-          // Home
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home_outlined),
-            label: ("Home"),
-          ),
-
-          // raffle
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/img/logo1.png'),
-            ),
-            label: ('Sorteio'),
-          ),
-
-          // Prizes
-          BottomNavigationBarItem(
-            icon: ImageIcon(
-              AssetImage('assets/img/trophy1.png'),
-            ),
-            label: ('Prêmios'),
           ),
         ],
       ),

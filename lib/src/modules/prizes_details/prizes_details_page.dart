@@ -8,7 +8,6 @@ class PrizesDetailsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xFFF6D006),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 5),
@@ -234,49 +233,6 @@ class PrizesDetailsPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          backgroundColor: const Color(0xFFF9FBFF),
-          indicatorColor: const Color.fromARGB(166, 239, 225, 27),
-          labelTextStyle: MaterialStateProperty.all(
-            const TextStyle(
-              fontSize: 12,
-            ),
-          ),
-        ),
-        child: NavigationBar(
-          selectedIndex: 1,
-          onDestinationSelected: (value) {},
-          destinations: [
-            // Home
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/home.png',
-                height: 25,
-              ),
-              label: ('Home'),
-            ),
-
-            // raffle
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/ticket.png',
-                height: 25,
-              ),
-              label: ('Sorteio'),
-            ),
-
-            // Prizes
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/trophy1.png',
-                height: 25,
-              ),
-              label: ('Prêmios'),
-            ),
-          ],
-        ),
       ),
     );
   }

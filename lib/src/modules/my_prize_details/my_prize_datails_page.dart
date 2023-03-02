@@ -7,19 +7,24 @@ class MyPrizeDetailsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0.0,
         centerTitle: true,
-        backgroundColor: const Color(0xFFF6D006),
-        actions: const [
+        actions: [
           Padding(
-            padding: EdgeInsets.only(right: 20),
-            child: Icon(
-              Icons.person_outlined,
-              size: 30,
+            padding: const EdgeInsets.only(right: 5),
+            child: IconButton(
+              icon: const Icon(
+                Icons.person_outlined,
+                size: 30,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, '/config');
+              },
             ),
           ),
         ],
         title: const Text(
-          'Detalhes',
+          'Meu Prêmio',
         ),
       ),
       body: ListView(
@@ -229,49 +234,6 @@ class MyPrizeDetailsPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(
-          backgroundColor: const Color(0xFFF9FBFF),
-          indicatorColor: const Color.fromARGB(166, 239, 225, 27),
-          labelTextStyle: MaterialStateProperty.all(
-            const TextStyle(
-              fontSize: 12,
-            ),
-          ),
-        ),
-        child: NavigationBar(
-          selectedIndex: 1,
-          onDestinationSelected: (value) {},
-          destinations: [
-            // Home
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/home.png',
-                height: 25,
-              ),
-              label: ('Home'),
-            ),
-
-            // raffle
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/ticket.png',
-                height: 25,
-              ),
-              label: ('Sorteio'),
-            ),
-
-            // Prizes
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/trophy1.png',
-                height: 25,
-              ),
-              label: ('Prêmios'),
-            ),
-          ],
-        ),
       ),
     );
   }
