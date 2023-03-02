@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
 
-class PrizesDetailsPage extends StatelessWidget {
-  const PrizesDetailsPage({super.key});
+class MyPrizeDetailsPage extends StatelessWidget {
+  const MyPrizeDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Color(0xFFF6D006),
-        actions: [
+        backgroundColor: const Color(0xFFF6D006),
+        actions: const [
           Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: IconButton(
-              icon: const Icon(
-                Icons.person_outlined,
-                size: 30,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/config');
-              },
+            padding: EdgeInsets.only(right: 20),
+            child: Icon(
+              Icons.person_outlined,
+              size: 30,
             ),
           ),
         ],
@@ -219,10 +214,10 @@ class PrizesDetailsPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     onPressed: () {
-                      Navigator.pushReplacementNamed(context, '');
+                      Navigator.pushReplacementNamed(context, '/qr-code');
                     },
                     child: const Text(
-                      'Participar',
+                      'Gerar Qr Code',
                       style: TextStyle(fontSize: 16),
                     ),
                   ),

@@ -9,7 +9,7 @@ class HomePage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         centerTitle: true,
-        backgroundColor: const Color(0xFFF9FBFF),
+        backgroundColor: Color(0xFFF6D006),
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 5),
@@ -35,6 +35,15 @@ class HomePage extends StatelessWidget {
             width: double.infinity,
             height: 200,
             color: const Color(0xFFCCCCCC),
+            child: const Center(
+              child: Text(
+                '<Isso será um carrossel de banners>',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ),
           ),
 
           const SizedBox(
@@ -247,7 +256,7 @@ class HomePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        onPressed: () => debugPrint('participar'),
+                        onPressed: () => debugPrint('Participar'),
                         child: const Text(
                           'Participar',
                           style: TextStyle(fontSize: 14),
@@ -272,7 +281,7 @@ class HomePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
                         splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
+                        onTap: () => Navigator.pushNamed(context, '/prizes-details'),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -352,7 +361,7 @@ class HomePage extends StatelessWidget {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        onPressed: () => debugPrint('participar'),
+                        onPressed: () => debugPrint('Participar'),
                         child: const Text(
                           'Participar',
                           style: TextStyle(fontSize: 14),
@@ -363,108 +372,7 @@ class HomePage extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 25,
-                ),
-
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    // card
-                    Material(
-                      elevation: 6,
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            // image
-                            Ink(
-                              decoration: const BoxDecoration(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10),
-                                ),
-                                image: DecorationImage(
-                                  image: AssetImage('assets/img/xtudo1.png'),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              height: MediaQuery.of(context).size.width * 0.35,
-                              width: MediaQuery.of(context).size.width * 0.3,
-                            ),
-
-                            // Text
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10,
-                                ),
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      'Combo Solteiro',
-                                      style: TextStyle(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA69696),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 25,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-
-                    // button
-                    Container(
-                      margin: const EdgeInsets.only(
-                        right: 8,
-                        bottom: 8,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        gradient: const LinearGradient(
-                          begin: Alignment.topLeft,
-                          end: Alignment.bottomRight,
-                          colors: [
-                            Color(0xFFFFEA20),
-                            Color(0xFFF1DB00),
-                          ],
-                        ),
-                      ),
-                      child: MaterialButton(
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        onPressed: () => debugPrint('participar'),
-                        child: const Text(
-                          'Participar',
-                          style: TextStyle(fontSize: 14),
-                        ),
-                      ),
-                    ),
-                  ],
+                  height: 20,
                 ),
               ],
             ),
@@ -472,37 +380,42 @@ class HomePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
-          backgroundColor: Color(0xFFF9FBFF),
+        data: NavigationBarThemeData(
+          backgroundColor: const Color(0xFFF9FBFF),
+          indicatorColor: const Color.fromARGB(166, 239, 225, 27),
+          labelTextStyle: MaterialStateProperty.all(
+            const TextStyle(
+              fontSize: 12,
+            ),
+          ),
         ),
         child: NavigationBar(
           selectedIndex: 1,
-          backgroundColor: const Color(0xFFF9FBFF),
           onDestinationSelected: (value) {},
           destinations: [
             // Home
-            const NavigationDestination(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 25,
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/img/home.png',
+                height: 25,
               ),
-              label: ("Home"),
+              label: ('Home'),
             ),
 
             // raffle
             NavigationDestination(
               icon: Image.asset(
-                'assets/img/logo1.png',
+                'assets/img/ticket.png',
                 height: 25,
               ),
               label: ('Sorteio'),
             ),
 
             // Prizes
-            const NavigationDestination(
-              icon: ImageIcon(
-                AssetImage('assets/img/trophy1.png'),
-                size: 20,
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/img/trophy1.png',
+                height: 25,
               ),
               label: ('Prêmios'),
             ),

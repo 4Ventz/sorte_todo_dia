@@ -8,21 +8,7 @@ class EditProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: const Color(0xFFF9FBFF),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.only(right: 5),
-            child: IconButton(
-              icon: const Icon(
-                Icons.person_outlined,
-                size: 30,
-              ),
-              onPressed: () {
-                Navigator.pushNamed(context, '/config');
-              },
-            ),
-          ),
-        ],
+        backgroundColor: Color(0xFFF6D006),
         title: const Text(
           'Editar Informações',
         ),
@@ -35,7 +21,7 @@ class EditProfilePage extends StatelessWidget {
           child: ListView(
             children: [
               const SizedBox(
-                height: 40,
+                height: 20,
               ),
 
               // Textfield Name
@@ -68,7 +54,7 @@ class EditProfilePage extends StatelessWidget {
               ),
 
               const SizedBox(
-                height: 60,
+                height: 80,
               ),
 
               const Text(
@@ -99,7 +85,7 @@ class EditProfilePage extends StatelessWidget {
               ),
 
               const SizedBox(
-                height: 60,
+                height: 80,
               ),
 
               Row(
@@ -118,7 +104,9 @@ class EditProfilePage extends StatelessWidget {
 
                   // Decoration
                   Expanded(
-                    child: Divider(),
+                    child: Divider(
+                      height: 20,
+                    ),
                   ),
                 ],
               ),
@@ -132,7 +120,7 @@ class EditProfilePage extends StatelessWidget {
                   'Trocar Senha',
                 ),
                 trailing: const Icon(Icons.chevron_right),
-                onTap: () => debugPrint('Sair'),
+                onTap: () => Navigator.pushNamed(context, '/change-password'),
               ),
 
               // Vertical divider

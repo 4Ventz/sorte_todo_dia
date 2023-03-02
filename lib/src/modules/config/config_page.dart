@@ -70,7 +70,7 @@ class ConfigPage extends StatelessWidget {
                         'Minha Conta',
                       ),
                       trailing: const Icon(Icons.chevron_right),
-                      onTap: () => debugPrint('Sair'),
+                      onTap: () => Navigator.pushNamed(context, '/edit-profile'),
                     ),
 
                     // Vertical divider
@@ -88,7 +88,7 @@ class ConfigPage extends StatelessWidget {
                               'Meus Sorteios',
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => debugPrint('Meus Sorteios'),
+                            onTap: () => Navigator.pushNamed(context, '/my-raffles'),
                           ),
                         )
                       ],
@@ -108,7 +108,7 @@ class ConfigPage extends StatelessWidget {
                               'Prêmios',
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => debugPrint('Prêmios'),
+                            onTap: () => Navigator.pushNamed(context, '/prizes'),
                           ),
                         )
                       ],

@@ -8,7 +8,7 @@ class RafflePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: const Color(0xFFF9FBFF),
+        backgroundColor: Color(0xFFF6D006),
         title: const Text(
           'Sorteio',
         ),
@@ -50,7 +50,7 @@ class RafflePage extends StatelessWidget {
               child: InkWell(
                 borderRadius: BorderRadius.circular(10),
                 splashColor: Colors.black12,
-                onTap: () => debugPrint('Image BTN'),
+                onTap: () => Navigator.pushNamed(context, '/my-raffles'),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
@@ -77,7 +77,10 @@ class RafflePage extends StatelessWidget {
                           children: const [
                             Text(
                               'Meus sorteios',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
                             SizedBox(
                               height: 10,
@@ -105,31 +108,12 @@ class RafflePage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 // Header
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      'Sorteios',
-                      style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
-                    ),
-                    // Btn
-                    InkWell(
-                      onTap: () => {
-                        debugPrint('teste'),
-                      },
-                      child: Row(
-                        children: const [
-                          Text(
-                            'Ver todos',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                          Icon(Icons.chevron_right_outlined),
-                        ],
-                      ),
-                    ),
-                  ],
+                const Text(
+                  'Todos os Sorteios',
+                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
 
                 const SizedBox(
@@ -148,40 +132,54 @@ class RafflePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
                         splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
+                        onTap: () => Navigator.pushNamed(context, '/prizes-details'),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
+                            Ink(
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/img/xtudo1.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              width: MediaQuery.of(context).size.width * 0.3,
                             ),
 
                             // Text
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   children: const [
                                     Text(
                                       'Combo Solteiro',
-                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.start,
+                                      textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         color: Color(0xFFA69696),
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 30,
+                                      height: 25,
                                     ),
                                   ],
                                 ),
@@ -193,51 +191,42 @@ class RafflePage extends StatelessWidget {
                     ),
 
                     // button
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 250),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
-                            ],
-                          ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        right: 8,
+                        bottom: 8,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFFFEA20),
+                            Color(0xFFF1DB00),
+                          ],
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ),
-                          ),
+                      ),
+                      child: MaterialButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        onPressed: () => debugPrint('Participar'),
+                        child: const Text(
+                          'Participar',
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                     ),
                   ],
                 ),
 
-                const SizedBox(
-                  height: 25,
+                SizedBox(
+                  height: 20,
                 ),
 
+                // Itens card
                 Stack(
                   alignment: Alignment.bottomRight,
                   children: [
@@ -249,40 +238,54 @@ class RafflePage extends StatelessWidget {
                       child: InkWell(
                         borderRadius: BorderRadius.circular(10),
                         splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
+                        onTap: () => Navigator.pushNamed(context, '/prizes-details'),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
+                            Ink(
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(10),
+                                  bottomLeft: Radius.circular(10),
+                                ),
+                                image: DecorationImage(
+                                  image: AssetImage('assets/img/xtudo1.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              height: MediaQuery.of(context).size.width * 0.35,
+                              width: MediaQuery.of(context).size.width * 0.3,
                             ),
 
                             // Text
                             Expanded(
                               child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
+                                ),
                                 child: Column(
                                   children: const [
                                     Text(
                                       'Combo Solteiro',
-                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                                      style: TextStyle(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                                     ),
                                     SizedBox(
                                       height: 10,
                                     ),
                                     Text(
                                       'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.start,
+                                      textAlign: TextAlign.center,
                                       style: TextStyle(
                                         fontWeight: FontWeight.w400,
                                         color: Color(0xFFA69696),
                                       ),
                                     ),
                                     SizedBox(
-                                      height: 30,
+                                      height: 25,
                                     ),
                                   ],
                                 ),
@@ -294,142 +297,31 @@ class RafflePage extends StatelessWidget {
                     ),
 
                     // button
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 250),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
-                            ],
-                          ),
-                        ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ),
-                          ),
-                        ),
+                    Container(
+                      margin: const EdgeInsets.only(
+                        right: 8,
+                        bottom: 8,
                       ),
-                    ),
-                  ],
-                ),
-
-                const SizedBox(
-                  height: 25,
-                ),
-
-                Stack(
-                  alignment: Alignment.bottomRight,
-                  children: [
-                    // card
-                    Material(
-                      elevation: 6,
-                      color: const Color(0xFFFFFFFF),
-                      borderRadius: BorderRadius.circular(10),
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(10),
-                        splashColor: Colors.black12,
-                        onTap: () => debugPrint('Image BTN'),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            // image
-                            Ink.image(
-                              image: const AssetImage('assets/img/xtudo1.png'),
-                              width: 140,
-                              height: 140,
-                            ),
-
-                            // Text
-                            Expanded(
-                              child: Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 20),
-                                child: Column(
-                                  children: const [
-                                    Text(
-                                      'Combo Solteiro',
-                                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                                    ),
-                                    SizedBox(
-                                      height: 10,
-                                    ),
-                                    Text(
-                                      'Concorra a um delicioso X-tudo!',
-                                      textAlign: TextAlign.start,
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.w400,
-                                        color: Color(0xFFA69696),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 30,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        gradient: const LinearGradient(
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                          colors: [
+                            Color(0xFFFFEA20),
+                            Color(0xFFF1DB00),
                           ],
                         ),
                       ),
-                    ),
-
-                    // button
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Container(
-                        width: double.infinity,
-                        height: 30,
-                        margin: const EdgeInsets.only(left: 250),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(5),
-                          gradient: const LinearGradient(
-                            begin: Alignment.topLeft,
-                            end: Alignment.bottomRight,
-                            colors: [
-                              Color(0xFFFFEA20),
-                              Color(0xFFF1DB00),
-                            ],
-                          ),
+                      child: MaterialButton(
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Material(
-                          color: const Color.fromARGB(0, 0, 0, 0),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(5),
-                            onTap: () => {
-                              debugPrint('participar'),
-                            },
-                            child: const Align(
-                              alignment: Alignment.center,
-                              child: Text(
-                                'Participar',
-                                style: TextStyle(fontSize: 14),
-                              ),
-                            ),
-                          ),
+                        onPressed: () => debugPrint('Participar'),
+                        child: const Text(
+                          'Participar',
+                          style: TextStyle(fontSize: 14),
                         ),
                       ),
                     ),
@@ -441,35 +333,42 @@ class RafflePage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(),
-        child: NavigationBar(
-          selectedIndex: 2,
+        data: NavigationBarThemeData(
           backgroundColor: const Color(0xFFF9FBFF),
+          indicatorColor: const Color.fromARGB(166, 239, 225, 27),
+          labelTextStyle: MaterialStateProperty.all(
+            const TextStyle(
+              fontSize: 12,
+            ),
+          ),
+        ),
+        child: NavigationBar(
+          selectedIndex: 1,
           onDestinationSelected: (value) {},
           destinations: [
             // Home
-            const NavigationDestination(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 25,
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/img/home.png',
+                height: 25,
               ),
-              label: ("Home"),
+              label: ('Home'),
             ),
 
             // raffle
             NavigationDestination(
               icon: Image.asset(
-                'assets/img/logo1.png',
+                'assets/img/ticket.png',
                 height: 25,
               ),
               label: ('Sorteio'),
             ),
 
             // Prizes
-            const NavigationDestination(
-              icon: ImageIcon(
-                AssetImage('assets/img/trophy1.png'),
-                size: 25,
+            NavigationDestination(
+              icon: Image.asset(
+                'assets/img/trophy1.png',
+                height: 25,
               ),
               label: ('Prêmios'),
             ),
