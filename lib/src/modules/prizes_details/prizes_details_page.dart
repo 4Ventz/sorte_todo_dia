@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sorte_todo_dia/src/shared/widget/join_button.dart';
+import 'package:sorte_todo_dia/src/shared/widget/prize_banner.dart';
+import 'package:sorte_todo_dia/src/shared/widget/raffle_number_container.dart';
 
 class PrizesDetailsPage extends StatelessWidget {
   const PrizesDetailsPage({super.key});
@@ -30,50 +33,9 @@ class PrizesDetailsPage extends StatelessWidget {
         children: [
           Stack(
             alignment: Alignment.bottomLeft,
-            children: [
-              //Image
-              Container(
-                height: MediaQuery.of(context).size.height / 2.5,
-                alignment: Alignment.center,
-                child: Expanded(
-                  child: Container(
-                    margin: const EdgeInsets.only(
-                      bottom: 4,
-                    ),
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                          'assets/img/xtudo1.png',
-                        ),
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-              //Text
-              Container(
-                decoration: const BoxDecoration(
-                  color: Color(0xFFFFFFFF),
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(5),
-                  ),
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 30,
-                    vertical: 15,
-                  ),
-                  child: Text(
-                    'Nº 44.123',
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
-              )
+            children: const [
+              PrizeBanner(),
+              RaffleNumberContainer(),
             ],
           ),
           Padding(
@@ -195,37 +157,10 @@ class PrizesDetailsPage extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 15,
+                  height: 20,
                 ),
 
-                Container(
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient: const LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [
-                        Color(0xFFFFEA20),
-                        Color(0xFFF1DB00),
-                      ],
-                    ),
-                  ),
-                  child: MaterialButton(
-                    padding: const EdgeInsets.all(8.0),
-                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(context, '');
-                    },
-                    child: const Text(
-                      'Participar',
-                      style: TextStyle(fontSize: 16),
-                    ),
-                  ),
-                ),
+                const JoinButton(),
                 const SizedBox(
                   height: 20,
                 ),

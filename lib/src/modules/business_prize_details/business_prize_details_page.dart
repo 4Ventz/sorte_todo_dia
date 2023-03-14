@@ -1,16 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:sorte_todo_dia/src/shared/widget/prize_banner.dart';
-import 'package:sorte_todo_dia/src/shared/widget/qr_code_button.dart';
-import 'package:sorte_todo_dia/src/shared/widget/raffle_number_container.dart';
 
-class MyPrizeDetailsPage extends StatelessWidget {
-  const MyPrizeDetailsPage({super.key});
+class BusinessPrizeDetailsPage extends StatelessWidget {
+  const BusinessPrizeDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        scrolledUnderElevation: 0.0,
         centerTitle: true,
         actions: [
           Padding(
@@ -27,16 +23,57 @@ class MyPrizeDetailsPage extends StatelessWidget {
           ),
         ],
         title: const Text(
-          'Meu Prêmio',
+          'Detalhes do Prêmio',
         ),
       ),
       body: ListView(
         children: [
           Stack(
             alignment: Alignment.bottomLeft,
-            children: const [
-              PrizeBanner(),
-              RaffleNumberContainer(),
+            children: [
+              //Image
+              Container(
+                height: MediaQuery.of(context).size.height / 2.5,
+                alignment: Alignment.center,
+                child: Expanded(
+                  child: Container(
+                    margin: const EdgeInsets.only(
+                      bottom: 4,
+                    ),
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                          'assets/img/xtudo1.png',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+
+              //Text
+              Container(
+                decoration: const BoxDecoration(
+                  color: Color(0xFFFFFFFF),
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(5),
+                  ),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 15,
+                  ),
+                  child: Text(
+                    'Nº 44.123',
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
           Padding(
@@ -158,11 +195,37 @@ class MyPrizeDetailsPage extends StatelessWidget {
                 ),
 
                 const SizedBox(
-                  height: 20,
+                  height: 25,
                 ),
 
-                const QrCodeButton(),
-
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    gradient: const LinearGradient(
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
+                      colors: [
+                        Color(0xFFFFEA20),
+                        Color(0xFFF1DB00),
+                      ],
+                    ),
+                  ),
+                  child: MaterialButton(
+                    padding: const EdgeInsets.all(8.0),
+                    materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    onPressed: () {
+                      debugPrint('Leitor Qr Code');
+                    },
+                    child: const Text(
+                      'Ler Qr Code',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                ),
                 const SizedBox(
                   height: 20,
                 ),

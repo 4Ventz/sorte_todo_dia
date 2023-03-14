@@ -27,7 +27,8 @@ class ConfigPage extends StatelessWidget {
           children: [
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
@@ -45,12 +46,11 @@ class ConfigPage extends StatelessWidget {
                 ),
               ),
             ),
-
-            // login form
             Expanded(
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFFFFF),
@@ -70,7 +70,8 @@ class ConfigPage extends StatelessWidget {
                         'Minha Conta',
                       ),
                       trailing: const Icon(Icons.chevron_right),
-                      onTap: () => Navigator.pushNamed(context, '/edit-profile'),
+                      onTap: () =>
+                          Navigator.pushNamed(context, '/edit-profile'),
                     ),
 
                     // Vertical divider
@@ -88,7 +89,8 @@ class ConfigPage extends StatelessWidget {
                               'Meus Sorteios',
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => Navigator.pushNamed(context, '/my-raffles'),
+                            onTap: () =>
+                                Navigator.pushNamed(context, '/my-raffles'),
                           ),
                         )
                       ],

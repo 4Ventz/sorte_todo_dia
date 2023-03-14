@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:sorte_todo_dia/src/modules/buiness_edit_profile/business_edit_profile_page.dart';
 import 'package:sorte_todo_dia/src/modules/business_config/business_config_page.dart';
+import 'package:sorte_todo_dia/src/modules/business_edit_cnpj/business_edit_cnpj_page.dart';
 import 'package:sorte_todo_dia/src/modules/business_login/business_login.dart';
+import 'package:sorte_todo_dia/src/modules/business_prize_details/business_prize_details_page.dart';
 import 'package:sorte_todo_dia/src/modules/business_raffles/business_raffles_page.dart';
 import 'package:sorte_todo_dia/src/modules/business_sing_up/business_sing_up_page.dart';
 import 'package:sorte_todo_dia/src/modules/change_password/change_password.dart';
@@ -52,6 +54,9 @@ class AppWidget extends StatelessWidget {
         '/business-config': (context) => const BusinessConfigPage(),
         '/business-edit-profile': (context) => const BusinessEditProfilePage(),
         '/business-raffles': (context) => const BusinessRafflesPage(),
+        '/business-change-cnpj': (context) => const BusinessChangeCnpjPage(),
+        '/business-prize-details': (context) =>
+            const BusinessPrizeDetailsPage(),
       },
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,

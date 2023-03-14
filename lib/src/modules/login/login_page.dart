@@ -27,7 +27,8 @@ class LoginPage extends StatelessWidget {
           children: [
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -52,7 +53,8 @@ class LoginPage extends StatelessWidget {
             Expanded(
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFFFFF),
@@ -64,7 +66,7 @@ class LoginPage extends StatelessWidget {
                 child: ListView(
                   children: [
                     const SizedBox(
-                      height: 20,
+                      height: 40,
                     ),
 
                     // Title
@@ -72,7 +74,8 @@ class LoginPage extends StatelessWidget {
                       alignment: Alignment.center,
                       child: Text(
                         'Acessar',
-                        style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w500),
                       ),
                     ),
 

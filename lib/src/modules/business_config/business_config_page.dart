@@ -27,7 +27,8 @@ class BusinessConfigPage extends StatelessWidget {
           children: [
             SafeArea(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: const [
@@ -50,7 +51,8 @@ class BusinessConfigPage extends StatelessWidget {
             Expanded(
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFFFFF),
@@ -63,20 +65,20 @@ class BusinessConfigPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     ListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5),
-                      ),
-                      title: const Text(
-                        'Minha Conta',
-                      ),
-                      trailing: const Icon(Icons.chevron_right),
-                      onTap: () => debugPrint('minha conta'),
-                    ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        title: const Text(
+                          'Editar Conta',
+                        ),
+                        trailing: const Icon(Icons.chevron_right),
+                        onTap: () => Navigator.pushNamed(
+                            context, '/business-edit-profile')),
 
                     // Vertical divider
                     const Divider(),
 
-                    // My Raffles btn
+                    // change CNPJ
                     Row(
                       children: [
                         Expanded(
@@ -85,10 +87,11 @@ class BusinessConfigPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                             ),
                             title: const Text(
-                              'Meus Sorteios',
+                              'Trocar CNPJ',
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => debugPrint('Meus Sorteios'),
+                            onTap: () => Navigator.pushNamed(
+                                context, '/business-change-cnpj'),
                           ),
                         )
                       ],
@@ -96,7 +99,7 @@ class BusinessConfigPage extends StatelessWidget {
 
                     const Divider(),
 
-                    // Prize Btn
+                    // Change password
                     Row(
                       children: [
                         Expanded(
@@ -105,10 +108,11 @@ class BusinessConfigPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(5),
                             ),
                             title: const Text(
-                              'Scanner',
+                              'Trocar Senha',
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => debugPrint('Scanner'),
+                            onTap: () => Navigator.pushNamed(
+                                context, '/change-password'),
                           ),
                         )
                       ],
@@ -135,7 +139,8 @@ class BusinessConfigPage extends StatelessWidget {
                               ),
                             ),
                             trailing: const Icon(Icons.chevron_right),
-                            onTap: () => debugPrint('Sair'),
+                            onTap: () =>
+                                Navigator.pushNamed(context, '/business-login'),
                           ),
                         ),
                       ],
@@ -160,44 +165,6 @@ class BusinessConfigPage extends StatelessWidget {
                 ),
               ),
             )
-          ],
-        ),
-      ),
-      bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
-          backgroundColor: Color(0xFFF9FBFF),
-        ),
-        child: NavigationBar(
-          selectedIndex: 1,
-          backgroundColor: const Color(0xFFF9FBFF),
-          onDestinationSelected: (value) {},
-          destinations: [
-            // Home
-            const NavigationDestination(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 25,
-              ),
-              label: ("Home"),
-            ),
-
-            // raffle
-            NavigationDestination(
-              icon: Image.asset(
-                'assets/img/logo1.png',
-                height: 25,
-              ),
-              label: ('Sorteio'),
-            ),
-
-            // Prizes
-            const NavigationDestination(
-              icon: Icon(
-                Icons.qr_code_scanner_outlined,
-                size: 25,
-              ),
-              label: ('Scanner'),
-            ),
           ],
         ),
       ),

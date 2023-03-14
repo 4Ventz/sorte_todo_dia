@@ -24,30 +24,38 @@ class BusinessLoginPage extends StatelessWidget {
         ),
 
         // Text and Icon
-        child: ListView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(
-              height: 50,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.asset('assets/img/Logo.png'),
-                const Text(
-                  'Sorte Todo Dia!',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+            SafeArea(
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    Image.asset(
+                      'assets/img/logo.png',
+                    ),
+                    const Text(
+                      'Sorte Todo Dia!',
+                      style: TextStyle(
+                        fontSize: 26,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-            const SizedBox(
-              height: 50,
-            ),
-
             // login form
             Expanded(
               child: Container(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
                 decoration: const BoxDecoration(
                   color: Color(0xFFFFFFFF),
                   borderRadius: BorderRadius.only(
@@ -55,17 +63,20 @@ class BusinessLoginPage extends StatelessWidget {
                     topRight: Radius.circular(20),
                   ),
                 ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: ListView(
                   children: [
                     const SizedBox(
                       height: 40,
                     ),
 
                     // Title
-                    const Text(
-                      'Acessar como empresa',
-                      style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+                    const Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'Acessar como Lojista',
+                        style: TextStyle(
+                            fontSize: 24, fontWeight: FontWeight.w500),
+                      ),
                     ),
 
                     const SizedBox(
@@ -137,7 +148,8 @@ class BusinessLoginPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/home');
+                          Navigator.pushReplacementNamed(
+                              context, '/business-home');
                         },
                         child: const Text(
                           'Entrar',
